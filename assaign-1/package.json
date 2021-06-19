@@ -1,0 +1,78 @@
+{
+  "name": "react-ts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "@apollo/react-ssr": "^4.0.0",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^12.20.7",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
+    "apollo-link-schema": "^1.2.5",
+    "apollo-server-micro": "^2.25.1",
+    "axios": "^0.21.1",
+    "dns": "file:./src/mock/dns",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "graphql-react": "^15.0.0",
+    "graphql-tag": "^2.12.4",
+    "graphql-tools": "^7.0.5",
+    "mongod": "^2.0.0",
+    "mongodb": "^3.6.9",
+    "mongodb-client-encryption": "^1.2.5",
+    "mongoose": "^5.12.14",
+    "net": "^1.0.2",
+    "next": "^11.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-graphql": "0.0.3",
+    "react-scripts": "4.0.3",
+    "tls": "0.0.1",
+    "typescript": "^4.2.3",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start next start",
+    "build": "react-scripts build next build",
+    "test": "react-scripts test",
+    "dev": "next dev",
+    "lint": "next lint",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-next": "^11.0.0",
+    "eslint-config-next-app": "^2.0.0"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "child_process": false
+  }
+}
