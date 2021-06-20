@@ -9,10 +9,10 @@ import { useMutation, useQuery } from '@apollo/react-hooks'
 const Product = ( ) => {
   const [selected, setSelected] = useState<string[]>([]);
   const [product, setProduct] = useState<Items[]>([]);
+  const [selectedCatogery, setselectedCatogery] = useState<String[]>(["dessert","rice","drink","starters"]);
   const [updatedData,{data:newData}]  = useMutation(deleteItemsQuery,{variables:{
     ids:selected
   }})
-  console.log(newData)
   useEffect(()=>{setProduct(newData?newData.deleteItems:[])},[newData])
   const { data ,loading, error} = useQuery(getItemsQuery)
   useEffect(()=>{setProduct(data?data.getItems:[])},[data])
@@ -33,13 +33,26 @@ const Product = ( ) => {
       selected.includes(id)?setSelected(selected.filter((item)=>{return item !== id})):setSelected([...selected,id]);
   };
 
+  const catogeryHandler = (event:React.ChangeEvent) => {
+    const catogery :String[]= event.target.value
+    if(catogery.includes("All"))
+    setselectedCatogery(["dessert","rice","drink","starters"])
+    else (setselectedCatogery(catogery));
 
+};
   return (
     <div>
-      
+    <label htmlFor="catogery">Choose a catogery:</label>
+    <select onChange={catogeryHandler} name="catogerys" id="catogerySelected" >
+    <option value="All" >All</option>
+    <option value="dessert">Dessert</option>
+    <option value="rice">Rice</option>
+    <option value="drink">Drink</option>
+    <option value="starters">Starters</option>
+    </select>
     <table className={classes.items}>
       <tbody>
-      {selected.length > 0 && <tr><button onClick={removeHandler} className={classes.delete}> Delete </button></tr>}
+      {selected.length > 0 && <tr><button onChange={removeHandler} className={classes.delete}> Delete </button></tr>}
       <tr>
       {selected.length > 0 &&<th>Select</th>}
         <th>Name</th>
@@ -49,7 +62,13 @@ const Product = ( ) => {
         <th>protiens</th>
       </tr>
       { product.map((item) => (
-        <EachItem  key={item._id} product={item} onHit={selectHandler} />
+        selectedCatogery.includes(item.catogery) && <tr key={item._id} onClick={selectHandler}>
+               <td id={item._id}>{item.name}</td>
+               <td>{item.calories}</td>
+               <td>{item.fat}</td>
+               <td>{item.carbs}</td>
+               <td>{item.protiens}</td>        
+    </tr>
       ))}
       </tbody>
     </table>
