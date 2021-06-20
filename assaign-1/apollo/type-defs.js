@@ -3,7 +3,7 @@ import  {  gql  }  from  "apollo-server-micro";
 export  const  typeDefs  =  gql`
     type  Item{
     catogery: String
-    id: ID
+    _id: ID
     name: String
     calories: String
     protiens: String
@@ -13,4 +13,7 @@ export  const  typeDefs  =  gql`
 
     type  Query {
         getItems: [Item]
+    }
+    type Mutation {
+        deleteItems(id:[String]!): [Item]
     }`

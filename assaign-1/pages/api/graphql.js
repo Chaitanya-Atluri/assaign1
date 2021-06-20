@@ -1,4 +1,4 @@
-import { ApolloServer, gql } from 'apollo-server-micro'
+import { ApolloServer } from 'apollo-server-micro'
 import { MongoClient } from 'mongodb'
 import {schema} from '../../apollo/schema'
 require('dotenv').config()

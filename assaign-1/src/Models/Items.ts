@@ -1,6 +1,6 @@
 class Items {
   catogery: string;
-  id: string;
+  _id: string;
   name: string;
   calories: string;
   protiens: string;
@@ -9,7 +9,7 @@ class Items {
 
   constructor(itemData: {
     catogery: string;
-    id: string;
+    _id: string;
     name: string;
     calories: string;
     protiens: string;
@@ -17,7 +17,7 @@ class Items {
     fat: string;
   }) {
           this.catogery = itemData.catogery;
-          this.id = itemData.id;
+          this._id = itemData._id;
           this.name = itemData.name;
           this.calories = itemData.calories;
           this.protiens = itemData.protiens;
