@@ -10,9 +10,7 @@
     border: 1px solid #ddd;
     padding: 8px;
   }
-  
-  .items tr:nth-child(even){background-color: #f2f2f2;}
-  
+    
   .items tr:hover {background-color: #ddd;}
   
   .items th {
@@ -26,4 +24,7 @@
   .items .delete{
     float: left;
     margin:5px;
+  }
+  .items .selected{
+    background-color: lightcoral;
   }

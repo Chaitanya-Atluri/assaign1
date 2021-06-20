@@ -22,13 +22,13 @@ const Product = ( ) => {
    const removeHandler =()=>{
 
     updatedData();
+    console.log(newData)
     setSelected([]);
     
    }
   
-  const selectHandler = (event:React.MouseEvent) => {
-      const id:string=event.currentTarget.firstElementChild?event.currentTarget.firstElementChild.id.toString():' ';
-      var index = selected.indexOf(id)
+  const selectHandler = (event:React.MouseEvent) => {    
+      const id:string=selected.length === 0 ?event.currentTarget.childNodes[0].id.toString():event.currentTarget.childNodes[1].id.toString();   
       selected.includes(id)?setSelected(selected.filter((item)=>{return item !== id})):setSelected([...selected,id]);
   };
 
@@ -39,6 +39,7 @@ const Product = ( ) => {
     else (setselectedCatogery(catogery));
 
 };
+console.log(selected)
   return (
     <div>
     <label htmlFor="catogery">Choose a catogery:</label>
@@ -61,7 +62,8 @@ const Product = ( ) => {
         <th>protiens</th>
       </tr>
       { product.map((item) => (
-        selectedCatogery.includes(item.catogery) && <tr key={item._id} onClick={selectHandler}>
+        selectedCatogery.includes(item.catogery) && <tr key={item._id} onClick={selectHandler} className={selected.includes(item._id)?classes.selected:""}>
+          {selected.length>0&&<td><input type="checkbox" checked={selected.includes(item._id)}/></td>}
                <td id={item._id}>{item.name}</td>
                <td>{item.calories}</td>
                <td>{item.fat}</td>
