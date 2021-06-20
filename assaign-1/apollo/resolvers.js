@@ -12,7 +12,7 @@ export const resolvers = {
         item.carbs=item.carbs,
         item.protiens=item.protiens
       })
-      console.log(typeof(data[0]._id))
+      console.log("here")
       return data
     },
   },
