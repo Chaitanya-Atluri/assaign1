@@ -52,7 +52,7 @@ const Product = ( ) => {
     </select>
     <table className={classes.items}>
       <tbody>
-      {selected.length > 0 && <tr><button onChange={removeHandler} className={classes.delete}> Delete </button></tr>}
+      {selected.length > 0 && <tr><button onClick={removeHandler} className={classes.delete}> Delete </button></tr>}
       <tr>
       {selected.length > 0 &&<th>Select</th>}
         <th>Name</th>
