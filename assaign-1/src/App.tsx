@@ -1,13 +1,11 @@
 import "./App.css";
-import ItemsContextProvider from "./Store/itemscontext";
+import "../tachons.css";
 import Product from './components/Items';
 function App() {
   
 
   return (
-    <ItemsContextProvider>
       <Product />
-     </ItemsContextProvider>
   );
 }
 

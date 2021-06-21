@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Items from "../Models/Items";
-import EachItem from "./eachItem";
 import classes from "./items.module.css";
 import gql from 'graphql-tag';
 import { useMutation, useQuery } from '@apollo/react-hooks'
-
 
 const Product = ( ) => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -27,7 +25,8 @@ const Product = ( ) => {
     
    }
   
-  const selectHandler = (event:React.MouseEvent) => {    
+  const selectHandler = (event:React.MouseEvent) => {   
+     
       const id:string=selected.length === 0 ?event.currentTarget.childNodes[0].id.toString():event.currentTarget.childNodes[1].id.toString();   
       selected.includes(id)?setSelected(selected.filter((item)=>{return item !== id})):setSelected([...selected,id]);
   };
@@ -54,7 +53,7 @@ console.log(selected)
       <tbody>
       {selected.length > 0 && <tr><button onClick={removeHandler} className={classes.delete}> Delete </button></tr>}
       <tr>
-      {selected.length > 0 &&<th>Select</th>}
+      {selected.length > 0 &&<th >Select</th>}
         <th>Name</th>
         <th>calories</th>
         <th>fat</th>
@@ -64,7 +63,7 @@ console.log(selected)
       { product.map((item) => (
         selectedCatogery.includes(item.catogery) && <tr key={item._id} onClick={selectHandler} className={selected.includes(item._id)?classes.selected:""}>
           {selected.length>0&&<td><input type="checkbox" checked={selected.includes(item._id)}/></td>}
-               <td id={item._id}>{item.name}</td>
+               <td id={item._id} >{item.name}</td>
                <td>{item.calories}</td>
                <td>{item.fat}</td>
                <td>{item.carbs}</td>
