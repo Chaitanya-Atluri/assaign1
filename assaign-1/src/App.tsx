@@ -1,5 +1,5 @@
 import "./App.css";
-import "../tachons.css";
+import "../tachyons.css";
 import Product from './components/Items';
 function App() {
   

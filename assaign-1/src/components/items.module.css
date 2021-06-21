@@ -22,8 +22,9 @@
   }
 
   .items .delete{
-    float: left;
-    margin:5px;
+    background-color: red;
+    color:white;
+    width:50%;
   }
   .items .selected{
     background-color: lightcoral;
